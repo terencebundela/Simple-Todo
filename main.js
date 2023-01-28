@@ -1,18 +1,32 @@
-let addToDoButton = document.getElementById('addToDo');
-let toDoContainer = document.getElementById('toDoContainer');
-let inputField = document.getElementById('inputField');
-
-addToDoButton.addEventListener('click', function(){
-    var paragraph = document.createElement('p')
-    paragraph.classList.add('paragraph-styling');
-    paragraph.innerText = inputField.value;
-    toDoContainer.appendChild(paragraph);
-    inputField.value = "";
-    paragraph.addEventListener('click, enter', function(){
-        paragraph.style.textDecoration = "line-through";
-    })
-    paragraph.addEventListener('dblclick', function(){
-        toDoContainer.removeChild(paragraph);
+$(document).ready(function () {
+    $('#btn').on('click', function () {
+        var input = $('input[name=ListItem]').val();
+        if($('input[name=ListItem]').val() == '') {
+            alert("You Must Write Something!");
+        } else
+        $('ul').append('<li>' + input + '<i class="fas fa-check"></i><i class="fas fa-trash"></i></li>'); 
+    });
+    
+    $('input').keyup(function (event) {
+        if (event.keyCode == 13) {
+            $('#btn').click();
+            $(this).val('');
+        }
     })
     
-})
+    $('ul').on('click', '.fa-trash', function () {
+        $(this).parent('li').fadeOut(200);
+
+    });
+
+    $('ul').on('click', '.fa-check', function () {
+        $(this).parent('li').toggleClass('checked');
+
+    });
+
+    
+
+    $('input').focus(function () {
+        $(this).val('');
+    });
+});
