@@ -1,78 +1,93 @@
-body, html {
-background-color: #ebb434;
-    width: 50%;
-    margin: 0 auto;
-    font-family: Arial, Helvetica, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    /* font-family: 'Noto Serif', serif; */
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 1px;
 }
 
-h1 {
-    
-    font-family: 'Joan', serif;
-    text-align: center;
-    padding: 10px;
-    font-style: bolder;
+body {
+    /* background: rgb(53%, 46%, 94%); */
+    background-color: #FFFBAC;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
+    height: 500px;
     width: 360px;
+    /* background-color: rgb(27%, 63%, 88%); */
+    background-color: #D7E9B9;
+    /* box-shadow: 10px 5px 5px rgb(88, 62, 215); */
+    box-shadow: 10px 5px 5px;
+    text-align: center;
+    overflow-y: auto;
+    border-radius: 5px;
+    padding: 10px;
 }
 
-#inputField {
-    width: 300px;
-    height:46px;
-    border: 1px solid black;
+header {
+    position: relative;
+    width: 75%;
+    z-index: 1;
+}
+
+input {
+    width: 80%;
+    height: 50px;
+    padding: 0 10px;
+    margin: 15px 0;
+    border-radius: 5px;
     outline: none;
-    font-size: 25px;
-    vertical-align: middle;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border: none;
 }
 
-#addToDo {
-    border: 1px solid black;
-    width: 50px;
-    height:50px;
-    vertical-align: middle;
-    font-size: 30px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-
-.to-dos {
-    
-    margin-top: 50px;
-}
-.paragraph-styling {
-    margin: 0;
+#btn {
+    width: 18%;
+    height: 50px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    top: 0.4%;
     cursor: pointer;
-    font-size: 20px;
-
+}
+.fa-circle-plus {
+    font-size: 1.2rem;
 }
 
-@media only screen and (max-width:600px) {
-    .container {
-        position:absolute;
-        left: 20%;
-        padding: 20px;
-        width: 360px;
-    }
-    h1 {
-       
-        position: relative;
-        width: 200px;
-        right:40%;
-        text-align: center;
-        font-size: 20px;
-        padding: 20px;
-    }
-    #inputField {
-        width: 250px;
-        height: 40px;
-        font-size: 18px;
-        vertical-align: middle;
-    }
-    #addToDo {
-        width:45px;
-        height:44px;
-        vertical-align: middle;
-        font-size: 25px;
-    }
+ul li {
+    list-style-type: none;
+    position: relative;
+    margin: 10px 0;
+    padding: 10px;
+    position: relative;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+ul .fa-check, .fa-trash {
+    position: absolute;
+    cursor: pointer;
+}
+
+ul .fa-check {
+    left: 40px;
+    color: green;
+}
+
+ul .fa-trash {
+    right: 15px;
+    color: red;
+}
+
+ul .checked {
+    background: lightgreen;
+    text-decoration: line-through;
+    transition: .2s;
+    border-radius: 5px;
 }
